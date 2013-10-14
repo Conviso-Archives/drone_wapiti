@@ -1,0 +1,37 @@
+require 'rexml/document'
+
+xml_file = '../../../input/wapiti-scan.xml'
+doc = REXML::Document.new File.new(xml_file)
+output = {}
+output[:issues] = []
+path="//report/bugTypeList/bugType/"
+toolname=doc.elements['//report/generatedBy'].attributes['id']
+
+output[:issues] = doc.elements.collect(path) do |issue|  
+  url=""
+  parameter=""
+  description=""
+  solution=""
+  references=""
+  issue.elements.each('bugList/bug/') {|vuln| 
+    url << vuln.elements['url'].text 
+    parameter << vuln.elements['parameter'].text 
+  }
+  issue.elements.each('references/reference') {|ref| references << ref.elements['title'].text}
+  issue.elements.each('description') {|desc| description << desc.to_s}
+  issue.elements.each('solution') {|remedy| solution << remedy.to_s}
+  {
+    :name => issue.attributes['name'],
+    :url =>  url,
+    :description => description,  
+    :remedy_guidance => solution,
+    :affected_component => "URL vulneravel: #{url}, parametro: #{parameter}",
+    :reference => references
+    #:severity => issue.elements['riskdesc'].text,
+    #:_hash => issue.elements['pluginid'].text
+  }
+end 
+
+output[:toolname]=toolname
+
+puts output

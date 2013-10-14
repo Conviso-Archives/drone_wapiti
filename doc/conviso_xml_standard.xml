@@ -1,0 +1,30 @@
+<scan>
+
+  <header>
+    <tool>[ID DA FERRAMENTA]</tool>
+    <project>[ID DO PROJETO EXATAMENTE IGUAL AO QUE TEM NO CSC]</project>
+    <timestamp>[DATA DA EXECUCAO DA VARREDURA]</timestamp>
+    <duration>[DURACAO EM SEGUNDOS DA VARREDURA]</duration>
+  </header>
+
+  <vulnerabilities>
+    <vulnerability id="1">
+      <title>[TITULO DA VULNERABILIDADE]</title>
+      <description>[DESCRICAO DA VULNERABILIDADE]</description>
+      <hash>[TITULO DA VULNERABILIDADE]</hash>
+
+      <optional>
+	<impact>[IMPACTO DE 1 A 3]</impact>
+	<exploitability>[DIFICULDADE DE EXPLORACAO DE 1 A 3]</exploitability>
+	<reproduction>[REPRODUCAO DA VULNERABILIDADE]</reproduction>
+	<control>[COMO MITIGAR A VULNERABILIDADE]</control>
+	<affected_component>[COMPONENTE AFETADO]</affected_component>
+	<reference>[REFERENCIAS PARA A VULNERABILIDADE]</reference>
+	<template_id>[REFERENCIA PARA TEMPLATE DE VULNERABILIDADE]</template_id>
+      </optional>
+
+    </vulnerability>
+
+  </vulnerabilities>
+
+</scan>

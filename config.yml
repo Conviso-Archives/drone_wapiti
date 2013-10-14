@@ -1,0 +1,34 @@
+tool_name: Wapiti
+
+# EX: log/tool.log
+log_file: Wapiti.log
+
+sources:
+- project_id: [ID PROJECT CSC]
+  input_directory: input/
+
+xmpp:
+  username: [TOOL_CLIENT]@bus.conviso.com.br
+  password: TOOL_XMPP_PASSWORD
+  importer_address: [IMPORTER_ADDRESS]
+
+# ENABLE DRONE NOTIFICATION SYSTEM
+# smtp:
+#   operator:
+#     name: [OPERATOR_NAME]
+#     email: [OPERATOR_EMAIL]
+
+# DEFAULT DRONE PLUGIN CONFIGURATION
+analysis:
+  blacklist: # BLACKLIST A SPECIFIC ISSUE
+    - ISSUE_NAME_MD5_HASH
+    - ISSUE_NAME_MD5_HASH
+  replace: # REPLACE ANY STRING INSIDE AN ISSUE
+    patternXXX: none
+    patternYYY: patternYYY_replacement
+  template: # ASSOCIATE AN ISSUE TO A CSC TEMPLATE
+    ISSUE_NAME_MD5_HASH: CSC_TEMPLATE_ID
+    85af276f187188339e0dad777ef75670: 5
+    2f3e8bdde5d7d6e742e87050c35ce778: 33
+    e0ac625068f4e7ec7a3252628b7b999a: 37
+    da68290d890bd3d8336c9256b8c8d920: 36
