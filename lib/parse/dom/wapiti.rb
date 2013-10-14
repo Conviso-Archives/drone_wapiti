@@ -52,8 +52,8 @@ module Parse
             parameter << vuln.elements['parameter'].text 
           }
           issue.elements.each('references/reference') {|ref| references << ref.elements['title'].text}
-          issue.elements.each('description') {|desc| description << desc.to_s}
-          issue.elements.each('solution') {|remedy| solution << remedy.to_s}
+          issue.elements.each('description') {|desc| description << desc.cdatas().join}
+          issue.elements.each('solution') {|remedy| solution << remedy.cdatas().join}
           {
             :name => issue.attributes['name'],
             :url =>  url,
